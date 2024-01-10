@@ -1,22 +1,28 @@
 ---
 title: "Assignment 1"
 author: "Cem Deniz SAYINER"
-date: "2024-01-09"
+date: "`r format(Sys.time(), '%d %B %Y')`"
 ---
 
-## 1.Introduce yourself in one paragraph (Your name surname, your work, your data interests and how you (plan to) use data science skills in your current/future work). Add your Linkedin account link.
-
-### About me
+# **About Me**
 
 Cem Deniz SAYINER, I have been working as a Senior R&D Engineer at ISBAK for 3 years. I possess 8 years of experience in software development, with the last 3 years focused on developing software for AI-Based Video Analytics Systems. I am enthusiastic about utilizing cutting-edge technology and open to new experiences in different fields that will help me expand my horizons.
 
 [To visit my LinkedIn Account](https://www.linkedin.com/in/cem-deniz-s-7511911a8)
 
-## 2. Watch some demo and tutorial videos from [Posit Youtube channel playlist](https://youtube.com/playlist?list=PL9HYL-VRX0oTOK4cpbCbRk15K2roEgzVW&si=o2Vh9XiQT_pnMo_B) and write one of them down on your Quarto document.
-
-### **What is data wrangling? Intro, Motivation, Outline, Setup \-- Pt. 1 Data Wrangling Introduction**
+# **What is data wrangling? Intro, Motivation, Outline, Setup \-- Pt. 1 Data Wrangling Introduction**
 
 [Tutorial Videos Link](https://www.youtube.com/watch?v=jOd65mR1zfw&list=PL9HYL-VRX0oTOK4cpbCbRk15K2roEgzVW&index=208)
+
+<div>
+
+`<iframe width="944" height="531" src="`{=html}https://www.youtube.com/embed/jOd65mR1zfw?si=oHaVfxst3TntoP2c[`"`{=html}](https://www.youtube.com/embed/_f3latmOhew%22)`title="`{=html}**What is data wrangling? Intro, Motivation, Outline, Setup \-- Pt. 1 Data Wrangling Introduction**`" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>`{=html}
+
+</iframe>
+
+</div>
+
+It's allways difficult to print out dataframe to console because default console print out is not enough to see details of dataframe.
 
 ```{r}
 library(dplyr)
@@ -25,6 +31,8 @@ library(ggplot2)
 diamonds
 ```
 
+But with dplyr package we can print out dataframe to console with tibble format. Easy to read and see details.
+
 ```{r}
 
 as_tibble(diamonds)
@@ -32,9 +40,13 @@ as_tibble(diamonds)
 
 ```
 
+Also we can use View() function to see dataframe in new window. It's more useful than console print out.
+
 ```{r}
 View(diamonds)
 ```
+
+And the best part with dplyr package is we can use pipe operator "%\>%" to chain functions. It's more readable and easy to use.
 
 ```{r}
 diamonds$x %>%
@@ -42,9 +54,55 @@ diamonds$x %>%
   mean()
 ```
 
-Alternatively :
+Otherwise we should use nested functions like this. It's not readable and easy to use.
 
 ```{r}
 d2 <- round(diamonds$x,2)
 mean(d2)
+```
+
+# Dataset
+
+**Veriye Dayalı Yönetim Modeli Araştırması**
+
+**About Dataset**
+
+"The aim of the research on the Data-Driven Management Model in Istanbul is to generate data that will serve as the basis for strategies in investments and services by determining the general sociodemographic and socioeconomic profile, needs, and tendencies of the Istanbul population. For this purpose, face-to-face interviews were conducted using the survey method with 50,000 households across the city. The number of surveys was distributed proportionally to the household numbers in each neighborhood, ensuring a minimum of 12 surveys per neighborhood. To ensure the representation of Istanbul in the study results, households for interviews were selected using a layered random sampling method at the neighborhood level."
+
+**Here is the access link for all datasets:**
+
+<https://data.ibb.gov.tr/dataset?q=veriye+dayal%C4%B1+y%C3%B6netim+modeli>
+
+This link contains multiple datasets that can be merged for in-depth analysis. Additionally, the sample dataset is available at the provided link.
+
+Sample Dataset: VDYM İlçe Bazında Hanelerdeki Duygu Durum
+
+```{r}
+library(readxl)
+library(dplyr)
+library(ggplot2)
+
+emotion <-read_excel("datas/1-vdym-ilce-baznda-hanelerdeki-duygu-durum-istatistikleri.xlsx")
+
+area <- emotion$`İlçe` %>%
+    as.factor()
+# ordered by "Mutluluk_Çok Fazla"
+area <- reorder(area, -emotion$`Mutluluk_Çok Fazla`)
+# plot
+ggplot(emotion, aes(x = area, y = `Mutluluk_Çok Fazla`)) +
+    geom_bar(stat = "identity", fill = "steelblue") +
+    coord_flip() +
+    labs(title = "Mutluluk Çok Fazla", x = "İlçe", y = "Seviye") +
+    theme(plot.title = element_text(hjust = 0.5))
+```
+
+```{r}
+
+area  <- reorder(area, -emotion$`Mutluluk_Çok Az`)
+#plot
+ggplot(emotion, aes(x = area, y = `Mutluluk_Çok Az`)) +
+    geom_bar(stat = "identity", fill = "steelblue") +
+    coord_flip() +
+    labs(title = "Mutluluk Çok Az", x = "İlçe", y = "Seviye") +
+    theme(plot.title = element_text(hjust = 0.5))
 ```
