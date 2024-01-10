@@ -8,7 +8,7 @@
 
 <meta name="author" content="Cem Deniz SAYINER">
 
-<title>Cem Deniz SAYINER Progress Journal - 2&nbsp; inclass1.qmd</title>
+<title>Cem Deniz SAYINER Progress Journal - 3&nbsp; inclass2.qmd</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./inclass2.html" rel="next">
-<link href="./assignment1.html" rel="prev">
+<link href="./assignment_shiny.html" rel="next">
+<link href="./inclass1.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -109,7 +109,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./inclass1.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">inclass1.qmd</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./inclass2.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">inclass2.qmd</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -168,13 +168,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./inclass1.html" class="sidebar-item-text sidebar-link active">
+  <a href="./inclass1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">inclass1.qmd</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./inclass2.html" class="sidebar-item-text sidebar-link">
+  <a href="./inclass2.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">inclass2.qmd</span></span></a>
   </div>
 </li>
@@ -197,7 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">inclass1.qmd</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">inclass2.qmd</span></h1>
 </div>
 
 
@@ -225,128 +225,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'dplyr'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
-
-    filter, lag</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"datas/emotion.Rdata"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>emotion_by_area <span class="ot">&lt;-</span><span class="fu">read_excel</span>(<span class="st">"datas/1-vdym-ilce-baznda-hanelerdeki-duygu-durum-istatistikleri.xlsx"</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">t</span>(emotion_by_area)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># first row as column names</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(df) <span class="ot">&lt;-</span> df[<span class="dv">1</span>,]</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df[<span class="sc">-</span><span class="dv">1</span>,]</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># index as row names</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># write max value for each column and index name</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>max_value <span class="ot">&lt;-</span> <span class="cf">function</span>(df){</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(df)){</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste0</span>( <span class="fu">colnames</span>(df)[i], <span class="st">" ilçesi için en yüksek değer alan değerlendirme "</span>, <span class="fu">rownames</span>(df)[<span class="fu">which.max</span>(df[,i])]))</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># call max_value function</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">max_value</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "ADALAR ilçesi için en yüksek değer alan değerlendirme Yaşam Memnuniyeti_Ne Fazla Ne Az"
-[1] "ARNAVUTKÖY ilçesi için en yüksek değer alan değerlendirme Mutluluk_Ne Fazla Ne Az"
-[1] "ATAŞEHİR ilçesi için en yüksek değer alan değerlendirme Üzüntü_Ne Fazla Ne Az"
-[1] "AVCILAR ilçesi için en yüksek değer alan değerlendirme Yaşam Memnuniyeti_Ne Fazla Ne Az"
-[1] "BAĞCILAR ilçesi için en yüksek değer alan değerlendirme Yaşam Memnuniyeti_Ne Fazla Ne Az"
-[1] "BAHÇELİEVLER ilçesi için en yüksek değer alan değerlendirme Mutluluk_Ne Fazla Ne Az"
-[1] "BAKIRKÖY ilçesi için en yüksek değer alan değerlendirme Yaşam Memnuniyeti_Ne Fazla Ne Az"
-[1] "BAŞAKŞEHİR ilçesi için en yüksek değer alan değerlendirme Üzüntü_Ne Fazla Ne Az"
-[1] "BAYRAMPAŞA ilçesi için en yüksek değer alan değerlendirme Yaşam Memnuniyeti_Ne Fazla Ne Az"
-[1] "BEŞİKTAŞ ilçesi için en yüksek değer alan değerlendirme Yaşam Memnuniyeti_Ne Fazla Ne Az"
-[1] "BEYKOZ ilçesi için en yüksek değer alan değerlendirme Yaşam Memnuniyeti_Ne Fazla Ne Az"
-[1] "BEYLİKDÜZÜ ilçesi için en yüksek değer alan değerlendirme Huzur_Ne Fazla Ne Az"
-[1] "BEYOĞLU ilçesi için en yüksek değer alan değerlendirme Yaşam Memnuniyeti_Ne Fazla Ne Az"
-[1] "BÜYÜKÇEKMECE ilçesi için en yüksek değer alan değerlendirme Mutluluk_Ne Fazla Ne Az"
-[1] "ÇATALCA ilçesi için en yüksek değer alan değerlendirme Kaygı_Çok Fazla"
-[1] "ÇEKMEKÖY ilçesi için en yüksek değer alan değerlendirme Üzüntü_Ne Fazla Ne Az"
-[1] "ESENLER ilçesi için en yüksek değer alan değerlendirme Mutluluk_Ne Fazla Ne Az"
-[1] "ESENYURT ilçesi için en yüksek değer alan değerlendirme Mutluluk_Ne Fazla Ne Az"
-[1] "EYÜPSULTAN ilçesi için en yüksek değer alan değerlendirme Yaşam Memnuniyeti_Ne Fazla Ne Az"
-[1] "FATİH ilçesi için en yüksek değer alan değerlendirme Yaşam Memnuniyeti_Ne Fazla Ne Az"
-[1] "GAZİOSMANPAŞA ilçesi için en yüksek değer alan değerlendirme Yaşam Memnuniyeti_Ne Fazla Ne Az"
-[1] "GÜNGÖREN ilçesi için en yüksek değer alan değerlendirme Yaşam Memnuniyeti_Ne Fazla Ne Az"
-[1] "KADIKÖY ilçesi için en yüksek değer alan değerlendirme Üzüntü_Ne Fazla Ne Az"
-[1] "KAĞITHANE ilçesi için en yüksek değer alan değerlendirme Mutluluk_Ne Fazla Ne Az"
-[1] "KARTAL ilçesi için en yüksek değer alan değerlendirme Yaşam Memnuniyeti_Ne Fazla Ne Az"
-[1] "KÜÇÜKÇEKMECE ilçesi için en yüksek değer alan değerlendirme Kaygı_Ne Fazla Ne Az"
-[1] "MALTEPE ilçesi için en yüksek değer alan değerlendirme Mutluluk_Ne Fazla Ne Az"
-[1] "PENDİK ilçesi için en yüksek değer alan değerlendirme Huzur_Fazla"
-[1] "SANCAKTEPE ilçesi için en yüksek değer alan değerlendirme Mutluluk_Ne Fazla Ne Az"
-[1] "SARIYER ilçesi için en yüksek değer alan değerlendirme Huzur_Ne Fazla Ne Az"
-[1] "SİLİVRİ ilçesi için en yüksek değer alan değerlendirme Yaşam Memnuniyeti_Ne Fazla Ne Az"
-[1] "SULTANBEYLİ ilçesi için en yüksek değer alan değerlendirme Huzur_Fazla"
-[1] "SULTANGAZİ ilçesi için en yüksek değer alan değerlendirme Yaşam Memnuniyeti_Ne Fazla Ne Az"
-[1] "ŞİLE ilçesi için en yüksek değer alan değerlendirme Yaşam Memnuniyeti_Ne Fazla Ne Az"
-[1] "ŞİŞLİ ilçesi için en yüksek değer alan değerlendirme Yaşam Memnuniyeti_Ne Fazla Ne Az"
-[1] "TUZLA ilçesi için en yüksek değer alan değerlendirme Huzur_Ne Fazla Ne Az"
-[1] "ÜMRANİYE ilçesi için en yüksek değer alan değerlendirme Huzur_Ne Fazla Ne Az"
-[1] "ÜSKÜDAR ilçesi için en yüksek değer alan değerlendirme Mutluluk_Ne Fazla Ne Az"
-[1] "ZEYTİNBURNU ilçesi için en yüksek değer alan değerlendirme Yaşam Memnuniyeti_Ne Fazla Ne Az"</code></pre>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(emotion, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(<span class="fu">rownames</span>(emotion), sum), <span class="at">y =</span> sum)) <span class="sc">+</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"İlçeler"</span>, <span class="at">y =</span> <span class="st">"Duygu Durum İndeksi"</span>, <span class="at">title =</span> <span class="st">"İstanbul İlçelerine Göre Duygu Durum İndeksi"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="inclass2_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>mutluluk <span class="ot">&lt;-</span> df[<span class="fu">grepl</span>(<span class="st">"Mutluluk"</span>, <span class="fu">rownames</span>(df)),]</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>üzüntü <span class="ot">&lt;-</span> df[<span class="fu">grepl</span>(<span class="st">"Üzüntü"</span>, <span class="fu">rownames</span>(df)),]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(mutluluk) <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(mutluluk)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(üzüntü) <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(üzüntü)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># row names as column</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>mutluluk<span class="sc">$</span>power <span class="ot">&lt;-</span> <span class="fu">rownames</span>(mutluluk)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>üzüntü<span class="sc">$</span>power <span class="ot">&lt;-</span> <span class="fu">rownames</span>(üzüntü)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># multiply each row with power</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>mutluluk<span class="sc">$</span>power <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(mutluluk<span class="sc">$</span>power)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>üzüntü<span class="sc">$</span>power <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(üzüntü<span class="sc">$</span>power)</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># make each col as numeric</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>mutluluk <span class="ot">&lt;-</span> <span class="fu">mutate_if</span>(mutluluk, is.character, as.numeric)</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>üzüntü <span class="ot">&lt;-</span> <span class="fu">mutate_if</span>(üzüntü, is.character, as.numeric)</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(mutluluk)){</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  mutluluk[,i] <span class="ot">&lt;-</span> mutluluk[,i] <span class="sc">*</span> mutluluk<span class="sc">$</span>power</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(üzüntü)){</span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  üzüntü[,i] <span class="ot">&lt;-</span> üzüntü[,i] <span class="sc">*</span> üzüntü<span class="sc">$</span>power<span class="sc">*</span> (<span class="sc">-</span><span class="dv">1</span>)</span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create emotion data frame</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>emotion <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">mutluluk =</span> <span class="fu">colSums</span>(mutluluk),</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  üzüntü <span class="ot">=</span> <span class="fu">colSums</span>(üzüntü)</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>emotion <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(emotion)</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># row sum</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>emotion<span class="sc">$</span>sum <span class="ot">&lt;-</span> emotion<span class="sc">$</span>mutluluk <span class="sc">+</span> emotion<span class="sc">$</span>üzüntü</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co"># to Rdata</span></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(emotion, <span class="at">file =</span> <span class="st">"datas/emotion.Rdata"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<pre><code></code></pre>
 
 
 
@@ -586,13 +476,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./assignment1.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Assignment 1</span></span>
+      <a href="./inclass1.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">inclass1.qmd</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./inclass2.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">inclass2.qmd</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./assignment_shiny.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">assignment_shiny.qmd</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

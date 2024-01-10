@@ -1,0 +1,12 @@
+---
+title: "ShinyApp"
+author: "Cem Deniz SAYINER"
+editor: visual
+---
+
+# **Shiny Application About İBB Açık Veri**
+
+\
+The objective of this application is to provide an interactive platform for displaying the emotional states across various districts of Istanbul.
+
+Application URL: <https://cdsayiner.shinyapps.io/myapp/>

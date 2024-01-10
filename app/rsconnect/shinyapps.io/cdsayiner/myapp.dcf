@@ -1,0 +1,10 @@
+name: myapp
+title:
+username: cdsayiner
+account: cdsayiner
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 10901042
+bundleId: 8130344
+url: https://cdsayiner.shinyapps.io/myapp/
+version: 1
