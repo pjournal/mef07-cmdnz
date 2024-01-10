@@ -1,0 +1,92 @@
+---
+title: "inclass1.qmd"
+editor: visual
+---
+
+```{r}
+library(readxl)
+library(dplyr)
+```
+
+```{r}
+emotion_by_area <-read_excel("datas/1-vdym-ilce-baznda-hanelerdeki-duygu-durum-istatistikleri.xlsx")
+df <- t(emotion_by_area)
+```
+
+```{r}
+df <- as.data.frame(df)
+```
+
+```{r}
+# first row as column names
+colnames(df) <- df[1,]
+df <- df[-1,]
+# index as row names
+```
+
+```{r}
+# write max value for each column and index name
+max_value <- function(df){
+  for (i in 1:ncol(df)){
+    print(paste0( colnames(df)[i], " ilçesi için en yüksek değer alan değerlendirme ", rownames(df)[which.max(df[,i])]))
+  }
+}
+
+```
+
+```{r}
+# call max_value function
+max_value(df)
+```
+
+```{r}
+mutluluk <- df[grepl("Mutluluk", rownames(df)),]
+üzüntü <- df[grepl("Üzüntü", rownames(df)),]
+
+```
+
+```{r}
+
+rownames(mutluluk) <- 1:nrow(mutluluk)
+rownames(üzüntü) <- 1:nrow(üzüntü)
+
+```
+
+```{r}
+# row names as column
+mutluluk$power <- rownames(mutluluk)
+üzüntü$power <- rownames(üzüntü)
+# multiply each row with power
+mutluluk$power <- as.numeric(mutluluk$power)
+üzüntü$power <- as.numeric(üzüntü$power)
+# make each col as numeric
+mutluluk <- mutate_if(mutluluk, is.character, as.numeric)
+üzüntü <- mutate_if(üzüntü, is.character, as.numeric)
+for (i in 1:ncol(mutluluk)){
+  mutluluk[,i] <- mutluluk[,i] * mutluluk$power
+}
+for (i in 1:ncol(üzüntü)){
+  üzüntü[,i] <- üzüntü[,i] * üzüntü$power* (-1)
+}
+```
+
+```{r}
+# create emotion data frame
+emotion <- data.frame(
+  mutluluk = colSums(mutluluk),
+  üzüntü = colSums(üzüntü)
+)
+emotion <- as.data.frame(emotion)
+# row sum
+emotion$sum <- emotion$mutluluk + emotion$üzüntü
+
+# ggplot for emotion order by sum
+library(ggplot2)
+ggplot(emotion, aes(x = reorder(rownames(emotion), sum), y = sum)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(x = "İlçeler", y = "Duygu Durum İndeksi", title = "İstanbul İlçelerine Göre Duygu Durum İndeksi")
+```
+
+```         
+```
