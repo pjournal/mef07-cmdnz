@@ -1,0 +1,16 @@
+---
+title: "inclass2.qmd"
+editor: visual
+---
+
+```{r}
+load("datas/emotion.Rdata")
+```
+
+```{r}
+library(ggplot2)
+ggplot(emotion, aes(x = reorder(rownames(emotion), sum), y = sum)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(x = "İlçeler", y = "Duygu Durum İndeksi", title = "İstanbul İlçelerine Göre Duygu Durum İndeksi")
+```

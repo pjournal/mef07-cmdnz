@@ -80,12 +80,11 @@ emotion <- as.data.frame(emotion)
 # row sum
 emotion$sum <- emotion$mutluluk + emotion$üzüntü
 
-# ggplot for emotion order by sum
-library(ggplot2)
-ggplot(emotion, aes(x = reorder(rownames(emotion), sum), y = sum)) +
-  geom_bar(stat = "identity", fill = "steelblue") +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-  labs(x = "İlçeler", y = "Duygu Durum İndeksi", title = "İstanbul İlçelerine Göre Duygu Durum İndeksi")
+# to Rdata
+save(emotion, file = "datas/emotion.Rdata")
+
+
+
 ```
 
 ```         
